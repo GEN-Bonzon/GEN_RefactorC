@@ -8,19 +8,19 @@
 
 
 class MovieStateChildren : public MovieState {
-    double getPrice() {
+    double getPrice() override {
         return 1.5;
     }
 
-    unsigned getMaxRentPeriodBeforePriceIncrease() {
+    unsigned getMaxRentPeriodBeforePriceIncrease() override {
         return 3;
     }
 
-    double getPriceIncrease() {
+    double getPriceIncrease() override {
         return 1.5;
     }
 
-    std::string getMovieType() {
+    std::string getMovieType() override {
         return "Children";
     }
 };

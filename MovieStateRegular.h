@@ -8,19 +8,19 @@
 
 
 class MovieStateRegular : public MovieState {
-    double getPrice() {
+    double getPrice() override {
         return 2;
     }
 
-    unsigned getMaxRentPeriodBeforePriceIncrease() {
+    unsigned getMaxRentPeriodBeforePriceIncrease() override {
         return 2;
     }
 
-    double getPriceIncrease() {
+    double getPriceIncrease() override {
         return 1.5;
     }
 
-    std::string getMovieType() {
+    std::string getMovieType() override {
         return "Regular";
     }
 };

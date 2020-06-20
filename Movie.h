@@ -7,16 +7,10 @@
 
 class Movie {
 public:
-    static const int CHILDRENS   = 2;
-    static const int REGULAR     = 0;
-    static const int NEW_RELEASE = 1;
-
     const MovieState *state;
 
     Movie( const std::string& title, MovieState *state);
 
-    int getPriceCode() const;
-    //void setPriceCode( int arg );
     std::string getTitle() const;
 
     double getPrice() const;
@@ -26,7 +20,7 @@ public:
 
 private:
     std::string _title;
-    MovieState *_state;
+    MovieState* _state;
 };
 
 inline Movie::
