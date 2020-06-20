@@ -27,3 +27,7 @@ TEST(Rental, price) {
     ASSERT_EQ(62, rental.getPrice());
 }
 
+TEST(Rental, title) {
+    ASSERT_EQ("Karate Kid", rental.getTitle());
+}
+

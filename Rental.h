@@ -13,6 +13,8 @@ public:
     int getDaysRented() const;
     const Movie& getMovie() const;
     double getPrice() const;
+    std::string getTitle() const;
+    std::string getType() const;
 
 private:
     Movie _movie;
@@ -37,6 +39,16 @@ getPrice() const {
         price += (_daysRented - _movie.getMaxRentPeriodBeforePriceIncrease()) * _movie.getPriceIncrease();
 
     return price;
+}
+
+inline std::string Rental::
+getTitle() const {
+    return _movie.getTitle();
+}
+
+inline std::string Rental::
+getType() const {
+    return _movie.getMovieType();
 }
 
 #endif // RENTAL_H
