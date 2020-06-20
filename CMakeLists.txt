@@ -44,6 +44,10 @@ add_executable(GEN_RefactorC
         Rental.h)
 
 # Trivial example using gtest and gmock
-target_link_libraries(GEN_RefactorC gtest gmock_main)
-add_test(NAME GEN_RefactorC COMMAND GEN_RefactorC)
+add_executable(test_lab
+        tests/customerStatementTest.cpp
+        Customer.cpp
+        Customer.h)
+target_link_libraries(test_lab gtest gmock_main)
+add_test(NAME test_lab COMMAND test_lab)
 
