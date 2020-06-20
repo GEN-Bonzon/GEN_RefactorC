@@ -18,8 +18,11 @@ private:
     std::string _name;
     std::vector< Rental > _rentals;
     double totalAmountDue;
+    unsigned frequentRenterPoints;
 
     double getTotalAmountDue();
+    unsigned getFrequentRenterPoint();
+    void getRentalsFigures(std::ostringstream &result) const;
 };
 
 inline Customer::
@@ -27,7 +30,7 @@ Customer() {}
 
 inline Customer::
 Customer( const std::string& name )
-        : _name( name ), totalAmountDue(0) {}
+        : _name( name ) {}
 
 inline void Customer::
 addRental( const Rental& arg ) { _rentals.push_back( arg ); }
