@@ -5,7 +5,7 @@
 
 class Rental {
 public:
-    Rental( const Movie& movie, int daysRented );
+    Rental(const Movie& movie, unsigned daysRented );
 
     int getDaysRented() const;
     const Movie& getMovie() const;
@@ -16,7 +16,7 @@ private:
 };
 
 inline Rental::
-Rental( const Movie& movie, int daysRented )
+Rental(const Movie& movie, unsigned daysRented )
         : _movie( movie )
         , _daysRented( daysRented ) {}
 

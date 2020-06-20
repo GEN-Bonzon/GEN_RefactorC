@@ -28,6 +28,8 @@ string Customer::statement()
         totalAmount += getRentalAmount(rental);
     }
     // add footer lines
+
+    // determine amounts for each line
     result << "Amount owed is " << getTotalAmountDue() << "\n";
     result << "You earned " << frequentRenterPoints
            << " frequent renter points";
@@ -35,60 +37,18 @@ string Customer::statement()
 }
 
 double Customer::getTotalAmountDue() {
-    totalAmountDue = 0;// determine amounts for each line
+    totalAmountDue = 0;
 
-    for (Rental rental : _rentals) {
-
+    for (Rental rental : _rentals)
         totalAmountDue += getRentalAmount(rental);
-        /*
-        totalAmountDue += rental.getMovie().getPrice();
-        if (rental.getDaysRented() > rental.getMovie().getMaxRentPeriodBeforePriceIncrease())
-            totalAmountDue += (rental.getDaysRented() - rental.getMovie().getMaxRentPeriodBeforePriceIncrease()) * rental.getMovie().getPriceIncrease();
-
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie::REGULAR:
-                totalAmountDue += 2;
-                if (rental.getDaysRented() > 2)
-                    totalAmountDue += (rental.getDaysRented() - 2) * 1.5;
-                break;
-            case Movie::NEW_RELEASE:
-                totalAmountDue += rental.getDaysRented() * 3;
-                break;
-            case Movie::CHILDRENS:
-                totalAmountDue += 1.5;
-                if (rental.getDaysRented() > 3)
-                    totalAmountDue += (rental.getDaysRented() - 3) * 1.5;
-                break;
-        }
-         */
-    }
 
     return totalAmountDue;
 }
 
 double Customer::getRentalAmount(const Rental& rental) {
-    double price = 0;
-
-    price += rental.getMovie().getPrice();
+    double price = rental.getMovie().getPrice();
     if (rental.getDaysRented() > rental.getMovie().getMaxRentPeriodBeforePriceIncrease())
         price += (rental.getDaysRented() - rental.getMovie().getMaxRentPeriodBeforePriceIncrease()) * rental.getMovie().getPriceIncrease();
-    /*
-    switch (rental.getMovie().getPriceCode()) {
-        case Movie::REGULAR:
-            price += 2;
-            if (rental.getDaysRented() > 2)
-                price += (rental.getDaysRented() - 2) * 1.5;
-            break;
-        case Movie::NEW_RELEASE:
-            price += rental.getDaysRented() * 3;
-            break;
-        case Movie::CHILDRENS:
-            price += 1.5;
-            if (rental.getDaysRented() > 3)
-                price += (rental.getDaysRented() - 3) * 1.5;
-            break;
-    }
-     */
 
     return price;
 }
