@@ -50,7 +50,7 @@ add_executable(GEN_RefactorC
 add_executable(test_lab
         tests/customerStatementTest.cpp
         Customer.cpp
-        Customer.h)
+        Customer.h tests/MovieTest.cpp)
 target_link_libraries(test_lab gtest gmock_main)
 add_test(NAME test_lab COMMAND test_lab)
 

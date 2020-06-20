@@ -7,8 +7,6 @@
 
 class Movie {
 public:
-    const MovieState *state;
-
     Movie( const std::string& title, MovieState *state);
 
     std::string getTitle() const;
