@@ -17,24 +17,6 @@ string Customer::statement()
     ostringstream result;
     result << "Rental Record for " << getName() << "\n";
     for ( ; iter != iter_end; ++iter ) {
-        double thisAmount = 0;
-
-        // determine amounts for each line
-        switch ( (*iter).getMovie().getPriceCode() ) {
-            case Movie::REGULAR:
-                thisAmount += 2;
-                if ((*iter).getDaysRented() > 2 )
-                    thisAmount += ((*iter).getDaysRented() - 2 ) * 1.5 ;
-                break;
-            case Movie::NEW_RELEASE:
-                thisAmount += (*iter).getDaysRented() * 3;
-                break;
-            case Movie::CHILDRENS:
-                thisAmount += 1.5;
-                if ((*iter).getDaysRented() > 3 )
-                    thisAmount += ((*iter).getDaysRented() - 3 ) * 1.5;
-                break;
-        }
 
         // add frequent renter points
         frequentRenterPoints++;
@@ -44,12 +26,33 @@ string Customer::statement()
 
         // show figures for this rental
         result << "\t" << (*iter).getMovie().getTitle() << "\t"
-               << thisAmount << "\n";
-        totalAmount += thisAmount;
+               << getAmount(iter) << "\n";
+        totalAmount += getAmount(iter);
     }
     // add footer lines
     result << "Amount owed is " << totalAmount << "\n";
     result << "You earned " << frequentRenterPoints
            << " frequent renter points";
     return result.str();
+}
+
+double Customer::getAmount(vector<Rental>::iterator &iter) const {
+    double  thisAmount= 0;// determine amounts for each line
+    switch ( (*iter).getMovie().getPriceCode() ) {
+        case Movie::REGULAR:
+            thisAmount += 2;
+            if ((*iter).getDaysRented() > 2 )
+                thisAmount += ((*iter).getDaysRented() - 2 ) * 1.5 ;
+            break;
+        case Movie::NEW_RELEASE:
+            thisAmount += (*iter).getDaysRented() * 3;
+            break;
+        case Movie::CHILDRENS:
+            thisAmount += 1.5;
+            if ((*iter).getDaysRented() > 3 )
+                thisAmount += ((*iter).getDaysRented() - 3 ) * 1.5;
+            break;
+    }
+
+    return thisAmount;
 }
