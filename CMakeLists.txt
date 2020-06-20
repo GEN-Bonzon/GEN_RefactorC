@@ -39,8 +39,11 @@ add_executable(GEN_RefactorC
         Customer.cpp
         Customer.h
         main.cpp
-        Movie.cpp
         Movie.h
+        MovieState.h
+        MovieStateChildren.h
+        MovieStateRegular.h
+        MovieStateNewRelease.h
         Rental.h)
 
 # Trivial example using gtest and gmock

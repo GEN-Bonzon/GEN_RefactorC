@@ -3,34 +3,49 @@
 #define MOVIE_H
 #include <string>
 
+#include "MovieState.h"
+
 class Movie {
 public:
     static const int CHILDRENS   = 2;
     static const int REGULAR     = 0;
     static const int NEW_RELEASE = 1;
 
-    Movie( const std::string& title, int priceCode = REGULAR );
+    const MovieState *state;
+
+    Movie( const std::string& title, MovieState *state);
 
     int getPriceCode() const;
-    void setPriceCode( int arg );
+    //void setPriceCode( int arg );
     std::string getTitle() const;
+
+    double getPrice() const;
+    unsigned getMaxRentPeriodBeforePriceIncrease() const;
+    double getPriceIncrease() const;
+    std::string getMovieType() const;
 
 private:
     std::string _title;
-    int _priceCode;
+    MovieState *_state;
 };
 
 inline Movie::
-Movie( const std::string& title, int priceCode )
+Movie( const std::string& title, MovieState *state )
         : _title( title )
-        , _priceCode( priceCode )
+        , _state( state )
 {}
 
-inline int Movie::
-getPriceCode() const { return _priceCode; }
+inline double Movie::
+getPrice() const { return _state->getPrice(); }
 
-inline void Movie::
-setPriceCode( int arg ) { _priceCode = arg; }
+inline unsigned Movie::
+getMaxRentPeriodBeforePriceIncrease() const { return _state->getMaxRentPeriodBeforePriceIncrease(); }
+
+inline double Movie::
+getPriceIncrease() const { return _state->getPriceIncrease(); }
+
+inline std::string Movie::
+getMovieType() const { return _state->getMovieType(); }
 
 inline std::string Movie::
 getTitle() const { return _title; }

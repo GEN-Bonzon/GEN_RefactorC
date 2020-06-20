@@ -17,9 +17,10 @@ public:
 private:
     std::string _name;
     std::vector< Rental > _rentals;
-    double amountDue;
+    double totalAmountDue;
 
-    double getAmount(const Rental& rental) const;
+    double getTotalAmountDue();
+    double getRentalAmount(const Rental& rental);
 };
 
 inline Customer::
@@ -27,7 +28,7 @@ Customer() {}
 
 inline Customer::
 Customer( const std::string& name )
-        : _name( name ) {}
+        : _name( name ), totalAmountDue(0) {}
 
 inline void Customer::
 addRental( const Rental& arg ) { _rentals.push_back( arg ); }
