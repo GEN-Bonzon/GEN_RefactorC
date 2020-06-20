@@ -23,3 +23,7 @@ TEST(Rental, daysRented) {
     ASSERT_EQ(42, rental.getDaysRented());
 }
 
+TEST(Rental, price) {
+    ASSERT_EQ(62, rental.getPrice());
+}
+

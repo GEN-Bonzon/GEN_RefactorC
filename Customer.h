@@ -20,7 +20,6 @@ private:
     double totalAmountDue;
 
     double getTotalAmountDue();
-    double getRentalAmount(const Rental& rental);
 };
 
 inline Customer::

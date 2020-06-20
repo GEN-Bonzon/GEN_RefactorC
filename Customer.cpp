@@ -24,8 +24,8 @@ string Customer::statement()
 
         // show figures for this rental
         result << "\t" << rental.getMovie().getTitle() << "\t"
-               << getRentalAmount(rental) << "\n";
-        totalAmount += getRentalAmount(rental);
+               << rental.getPrice() << "\n";
+        totalAmount += rental.getPrice();
     }
     // add footer lines
 
@@ -40,15 +40,8 @@ double Customer::getTotalAmountDue() {
     totalAmountDue = 0;
 
     for (Rental rental : _rentals)
-        totalAmountDue += getRentalAmount(rental);
+        totalAmountDue += rental.getPrice();
 
     return totalAmountDue;
 }
 
-double Customer::getRentalAmount(const Rental& rental) {
-    double price = rental.getMovie().getPrice();
-    if (rental.getDaysRented() > rental.getMovie().getMaxRentPeriodBeforePriceIncrease())
-        price += (rental.getDaysRented() - rental.getMovie().getMaxRentPeriodBeforePriceIncrease()) * rental.getMovie().getPriceIncrease();
-
-    return price;
-}

@@ -6,6 +6,7 @@
 #include "MovieStateRegular.h"
 #include "MovieStateNewRelease.h"
 #include "MovieStateChildren.h"
+#include "Rental.h"
 
 TEST(Customer, statement) {
 
