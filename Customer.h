@@ -17,8 +17,9 @@ public:
 private:
     std::string _name;
     std::vector< Rental > _rentals;
+    double amountDue;
 
-    double getAmount(std::vector<Rental>::iterator &iter) const;
+    double getAmount(const Rental& rental) const;
 };
 
 inline Customer::
