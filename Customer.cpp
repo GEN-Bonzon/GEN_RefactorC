@@ -23,6 +23,25 @@ string Customer::statement()
     return result.str();
 }
 
+std::string Customer::statementMarkDown() {
+    ostringstream result;
+    result << "# Rental Record for " << getName() << "\n";
+
+    //Get info on each rental (title + price)
+    for(Rental rental : _rentals) {
+        // show figures for this rental
+        result << "\t##" << rental.getTitle() << "\t"
+               << rental.getPrice() << "\n";
+    }
+
+    // add footer lines
+    result << "## Amount owed is " << getTotalAmountDue() << "\n";
+    result << "## You earned " << getFrequentRenterPoint()
+           << " frequent renter points";
+    return result.str();
+
+}
+
 void Customer::getRentalsFigures(ostringstream &result) const {
     for(Rental rental : _rentals) {
         // show figures for this rental
