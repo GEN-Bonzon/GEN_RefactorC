@@ -8,6 +8,13 @@
 #include "MovieStateChildren.h"
 #include "Rental.h"
 
+TEST(Customer, name) {
+    std::string name = "Jimmy";
+    Customer customer(name);
+
+    ASSERT_EQ(name, customer.getName());
+}
+
 TEST(Customer, statement) {
 
     Customer customer("Olivier");
