@@ -16,4 +16,4 @@ script:
   - cmake --build .
 
 after_script:
-  - cmake --build . --target test_lab
+        - cmake --build . --target GEN_RefactorC
