@@ -48,7 +48,7 @@ add_executable(GEN_RefactorC
 
 # Trivial example using gtest and gmock
 add_executable(test_lab
-        tests/customerStatementTest.cpp
+        tests/CustomerTest.cpp
         Customer.cpp
         Customer.h
         Rental.h

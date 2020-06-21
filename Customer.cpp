@@ -13,6 +13,7 @@ string Customer::statement()
     ostringstream result;
     result << "Rental Record for " << getName() << "\n";
 
+    //Get info on each rental (title + price)
     getRentalsFigures(result);
 
     // add footer lines
