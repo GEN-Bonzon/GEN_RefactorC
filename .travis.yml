@@ -9,7 +9,6 @@ language: cpp
 
 before_script:
   - mkdir build
-  - cmake .
 
 script:
   - cmake --build .
