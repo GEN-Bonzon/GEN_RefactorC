@@ -56,4 +56,3 @@ add_executable(test_lab
         tests/RentalTest.cpp)
 target_link_libraries(test_lab gtest gmock_main)
 add_test(NAME test_lab COMMAND test_lab)
-
