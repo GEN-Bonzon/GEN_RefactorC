@@ -12,7 +12,7 @@ before_script:
   - cmake
 
 script:
-  - cmake --build .
+  - cmake --build
 
 after_script:
   - cmake --build . --target test_lab
